@@ -1,50 +1,62 @@
 # oreilly-reader
 
-Claude Code skill — reads and synthesizes O'Reilly Learning books via Playwright browser automation.
+Claude Code skill that reads and synthesizes O'Reilly Learning books via Playwright browser automation.
 
-## What it does
+O'Reilly renders chapter content dynamically. A static HTTP fetch returns a shell; the actual text only exists after JavaScript runs. This skill drives the Playwright MCP browser to navigate each chapter, evaluates `(document.querySelector('main') || document.body).innerText` to extract the full text, and saves it to disk. A synthesis subagent then reads all saved files and produces a technical chapter-by-chapter synthesis. Snapshot-based extraction is explicitly avoided: chapter snapshots exceed 171K characters and truncate.
 
-Navigates an O'Reilly book chapter by chapter, extracts the full text via JavaScript evaluation, and produces a technical chapter-by-chapter synthesis tuned to the reader's background.
-
-O'Reilly renders content dynamically — standard HTTP fetch returns a shell. This skill uses the Playwright MCP browser to evaluate `document.querySelector('main').innerText` on each chapter page, which gets the actual content.
+Two modes: single-book (user provides a URL or title, skill reads targeted chapters) and multi-book research (user states an engineering goal, skill searches O'Reilly, triages TOCs, reads targeted chapters across multiple books, and synthesizes across all sources).
 
 ## Requirements
 
-- [Claude Code](https://claude.ai/code) with the Playwright MCP plugin enabled
-- An active O'Reilly Learning subscription (logged in via Playwright browser)
+- Claude Code with the Playwright MCP plugin enabled
+- An active O'Reilly Learning subscription, logged in via the Playwright browser
 
 ## Install
 
-```bash
+```
 claude mcp install oreilly-reader.skill
 ```
 
-Or download `oreilly-reader.skill` from the [releases page](../../releases) and install via Claude Code settings.
+Or download `oreilly-reader.skill` from the releases page and install via Claude Code settings.
 
-## Usage
+## Triggers
 
-Drop an O'Reilly book URL into Claude Code:
+The skill fires on:
+- An O'Reilly book URL (`learning.oreilly.com/library/view/...`)
+- An O'Reilly playlist URL (`learning.oreilly.com/playlists/...`)
+- "read this book", "what's in this O'Reilly book"
+- Requests to extract or summarize O'Reilly content
+- "look for books on X" research sessions
 
-```
-https://learning.oreilly.com/library/view/build-a-large/9781633437166/
-```
+## How it works
 
-Or from a playlist:
+### Single book
 
-```
-https://learning.oreilly.com/playlists/d1def9e4-815c-4a24-9db5-db7da9ebc16d
-```
+1. Navigate to the book URL.
+2. Extract the TOC via `browser_evaluate` with a `querySelectorAll('a[href*="/library/view/"]')` selector.
+3. Select the 2-4 chapters relevant to the goal (by title).
+4. For each chapter: navigate, evaluate `main.innerText`, save to a named file on disk.
+5. Spawn a synthesis `Agent` (Explore subagent) with all saved file paths.
 
-The skill handles:
-- Playlist → book list extraction
-- TOC parsing
-- Chapter-by-chapter text extraction
-- Synthesis via a sub-agent (depth tunable to audience)
+### Multi-book research
+
+1. User states a precise engineering goal.
+2. Run 2-4 targeted O'Reilly searches.
+3. For each candidate book: extract the TOC, decide which chapters match before reading any content.
+4. Read 2-4 chapters per book, name files by book abbreviation + chapter + topic.
+5. Optionally create an O'Reilly playlist holding all books read.
+6. Spawn a synthesis subagent across all files from all books.
+
+The synthesis agent produces: new insights not obvious from first principles, specific code patterns worth implementing, domain-specific findings, a comparison table (with vs without book research, minimum 6 rows), and cross-book convergences or contradictions.
 
 ## Auth
 
-If Playwright redirects to the login page, log into O'Reilly in your browser. The Playwright session needs a live O'Reilly cookie. Once logged in, navigate back to the book URL.
+If Playwright redirects to the login page, the session is not authenticated. Log into O'Reilly in the Playwright browser. Once logged in, navigate back to the book URL and re-invoke the skill.
 
-## Built by
+## What this skill is not
 
-[NuClide Research](https://nuclide-research.com) — nicholas@nuclide-research.com
+This skill does not cache or store book content beyond the current session's working directory files. It does not bypass O'Reilly's paywall; it requires a valid logged-in subscription. It reads only chapters the user targets; it does not auto-read every chapter in a book.
+
+## License
+
+MIT. Part of the NuClide toolchain. Contact: [nuclide-research.com](https://nuclide-research.com)
