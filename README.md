@@ -3,10 +3,10 @@
 <h4 align="center">Claude Code skill that reads and synthesizes O'Reilly Learning books.</h4>
 
 <p align="center">
-  <a href="https://github.com/nuclide-research/oreilly-reader-skill/blob/main/LICENSE"><img src="https://img.shields.io/github/license/nuclide-research/oreilly-reader-skill?style=flat-square" alt="license"></a>
+  <a href="https://github.com/zellkernel/oreilly-reader-skill/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zellkernel/oreilly-reader-skill?style=flat-square" alt="license"></a>
   <a href="https://claude.ai/code"><img src="https://img.shields.io/badge/Claude_Code-skill-blueviolet?style=flat-square" alt="Claude Code"></a>
   <a href="https://playwright.dev"><img src="https://img.shields.io/badge/Playwright-MCP-2EAD33?style=flat-square" alt="Playwright"></a>
-  <a href="https://nuclide-research.com"><img src="https://img.shields.io/badge/by-NuClide-blue?style=flat-square" alt="NuClide"></a>
+  <a href="https://zellkernel.com"><img src="https://img.shields.io/badge/by-NuClide-blue?style=flat-square" alt="NuClide"></a>
 </p>
 
 <p align="center">
@@ -91,12 +91,12 @@ The `allowed-tools` field gates the skill to the Playwright MCP browser tools pl
 
 # Our other projects
 
-- [aimap](https://github.com/nuclide-research/aimap) — fingerprint scanner for AI and ML infrastructure
-- [pharos](https://github.com/nuclide-research/pharos) — autonomous offensive research agent
-- [sentinel](https://github.com/nuclide-research/sentinel) — CVE-reactive exposure pipeline
-- [scanner](https://github.com/nuclide-research/scanner) — fast active-banner stage between Shodan and aimap
-- [visorlog](https://github.com/nuclide-research/visorlog) — finding ledger
+- [aimap](https://github.com/zellkernel/aimap) — fingerprint scanner for AI and ML infrastructure
+- [pharos](https://github.com/zellkernel/pharos) — autonomous offensive research agent
+- [sentinel](https://github.com/zellkernel/sentinel) — CVE-reactive exposure pipeline
+- [scanner](https://github.com/zellkernel/scanner) — fast active-banner stage between Shodan and aimap
+- [visorlog](https://github.com/zellkernel/visorlog) — finding ledger
 
 # License
 
-MIT. Part of the NuClide toolchain. Contact: [nuclide-research.com](https://nuclide-research.com)
+MIT. Part of the NuClide toolchain. Contact: [zellkernel.com](https://zellkernel.com)
