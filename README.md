@@ -6,7 +6,7 @@
   <a href="https://github.com/zellkernel/oreilly-reader-skill/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zellkernel/oreilly-reader-skill?style=flat-square" alt="license"></a>
   <a href="https://claude.ai/code"><img src="https://img.shields.io/badge/Claude_Code-skill-blueviolet?style=flat-square" alt="Claude Code"></a>
   <a href="https://playwright.dev"><img src="https://img.shields.io/badge/Playwright-MCP-2EAD33?style=flat-square" alt="Playwright"></a>
-  <a href="https://zellkernel.com"><img src="https://img.shields.io/badge/by-NuClide-blue?style=flat-square" alt="NuClide"></a>
+  <a href="https://zellkernel.com"><img src="https://img.shields.io/badge/by--blue?style=flat-square" alt=""></a>
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@ O'Reilly renders chapter content with JavaScript. A standard HTTP fetch returns 
 - Per-chapter text extraction direct from the rendered DOM
 - Sub-agent synthesis with tunable depth
 - No Python dependencies. Skill bundle ships as a single `.skill` archive
-- Lives alongside the rest of the NuClide research toolchain
+- Lives alongside the rest of the  toolchain
 
 # Installation
 
@@ -99,4 +99,4 @@ The `allowed-tools` field gates the skill to the Playwright MCP browser tools pl
 
 # License
 
-MIT. Part of the NuClide toolchain. Contact: [zellkernel.com](https://zellkernel.com)
+MIT. Part of the  toolchain. Contact: [zellkernel.com](https://zellkernel.com)
