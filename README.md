@@ -3,10 +3,10 @@
 <h4 align="center">Claude Code skill that reads and synthesizes O'Reilly Learning books.</h4>
 
 <p align="center">
-  <a href="https://github.com/zellkernel/oreilly-reader-skill/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zellkernel/oreilly-reader-skill?style=flat-square" alt="license"></a>
+  <a href="https://github.com/sshpie/oreilly-reader-skill/blob/main/LICENSE"><img src="https://img.shields.io/github/license/sshpie/oreilly-reader-skill?style=flat-square" alt="license"></a>
   <a href="https://claude.ai/code"><img src="https://img.shields.io/badge/Claude_Code-skill-blueviolet?style=flat-square" alt="Claude Code"></a>
   <a href="https://playwright.dev"><img src="https://img.shields.io/badge/Playwright-MCP-2EAD33?style=flat-square" alt="Playwright"></a>
-  <a href="https://zellkernel.com"><img src="https://img.shields.io/badge/by--blue?style=flat-square" alt=""></a>
+  <a href="https://sshpie.com"><img src="https://img.shields.io/badge/by--blue?style=flat-square" alt=""></a>
 </p>
 
 <p align="center">
@@ -91,12 +91,12 @@ The `allowed-tools` field gates the skill to the Playwright MCP browser tools pl
 
 # Our other projects
 
-- [aimap](https://github.com/zellkernel/aimap) — fingerprint scanner for AI and ML infrastructure
-- [pharos](https://github.com/zellkernel/pharos) — autonomous offensive research agent
-- [sentinel](https://github.com/zellkernel/sentinel) — CVE-reactive exposure pipeline
-- [scanner](https://github.com/zellkernel/scanner) — fast active-banner stage between Shodan and aimap
-- [visorlog](https://github.com/zellkernel/visorlog) — finding ledger
+- [aimap](https://github.com/sshpie/aimap) — fingerprint scanner for AI and ML infrastructure
+- [pharos](https://github.com/sshpie/pharos) — autonomous offensive research agent
+- [sentinel](https://github.com/sshpie/sentinel) — CVE-reactive exposure pipeline
+- [scanner](https://github.com/sshpie/scanner) — fast active-banner stage between Shodan and aimap
+- [visorlog](https://github.com/sshpie/visorlog) — finding ledger
 
 # License
 
-MIT. Part of the  toolchain. Contact: [zellkernel.com](https://zellkernel.com)
+MIT. Part of the  toolchain. Contact: [sshpie.com](https://sshpie.com)
